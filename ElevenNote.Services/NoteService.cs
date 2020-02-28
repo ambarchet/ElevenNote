@@ -71,6 +71,7 @@ namespace ElevenNote.Services
                     Content = entity.Content,
                     CreatedUtc = entity.CreatedUtc,
                     ModifiedUtc = entity.ModifiedUtc,
+                    CategoryId = entity.CategoryId
                   //  =entity.CategoryId
                 };
             }
