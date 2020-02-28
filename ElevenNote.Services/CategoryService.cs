@@ -43,6 +43,40 @@ namespace ElevenNote.Services
             }
         }
 
+        public CategoryDetail GetCategoryById(int id)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Categories.Single(e => e.CategoryId == id);
+                    return new CategoryDetail
+                    {
+                        CategoryId = entity.CategoryId,
+                        Name = entity.Name
+                    };
+            }
+        }
+        public bool UpdateCategory (CategoryEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Categories.Single(e => e.CategoryId == model.CategoryId);
+                entity.Name = model.Name;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteCategory(int categoryId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Categories.Single(e => e.CategoryId == categoryId);
+
+                ctx.Categories.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
-}
+
