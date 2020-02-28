@@ -59,7 +59,11 @@ namespace ElevenNote.Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Categories.Single(e => e.Id == model.Id);
+                var entity = 
+                    ctx
+                    .Categories
+                    .Single(e => e.Id == model.Id);
+
                 entity.Name = model.Name;
 
                 return ctx.SaveChanges() == 1;
