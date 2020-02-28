@@ -86,6 +86,15 @@
   <ItemGroup>
     <Compile Include="Category.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202002271639261_InitialCreate.cs" />
+    <Compile Include="Migrations\202002271639261_InitialCreate.Designer.cs">
+      <DependentUpon>202002271639261_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002281507029_AddedCategory.cs" />
+    <Compile Include="Migrations\202002281507029_AddedCategory.Designer.cs">
+      <DependentUpon>202002281507029_AddedCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -135,6 +144,14 @@
   <ItemGroup>
     <Folder Include="bin\Release\" />
     <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002271639261_InitialCreate.resx">
+      <DependentUpon>202002271639261_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002281507029_AddedCategory.resx">
+      <DependentUpon>202002281507029_AddedCategory.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

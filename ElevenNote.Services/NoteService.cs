@@ -47,7 +47,10 @@ namespace ElevenNote.Services
                                   {
                                       NoteId = e.NoteId,
                                       Title = e.Title,
-                                      CreatedUtc = e.CreatedUtc
+                                      CreatedUtc = e.CreatedUtc,
+                                      CategoryId = e.CategoryId
+
+                                      
                                   }
                                   );
                 return query.ToArray();

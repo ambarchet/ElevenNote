@@ -34,7 +34,7 @@ namespace ElevenNote.Services
                              e =>
                                   new CategoryListItem
                                   {
-                                      CategoryId = e.CategoryId,
+                                      Id = e.Id,
                                       Name = e.Name,
                                   }
                                   );
@@ -47,10 +47,10 @@ namespace ElevenNote.Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Categories.Single(e => e.CategoryId == id);
+                var entity = ctx.Categories.Single(e => e.Id == id);
                     return new CategoryDetail
                     {
-                        CategoryId = entity.CategoryId,
+                        Id = entity.Id,
                         Name = entity.Name
                     };
             }
@@ -59,18 +59,18 @@ namespace ElevenNote.Services
         {
             using(var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Categories.Single(e => e.CategoryId == model.CategoryId);
+                var entity = ctx.Categories.Single(e => e.Id == model.Id);
                 entity.Name = model.Name;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public bool DeleteCategory(int categoryId)
+        public bool DeleteCategory(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.Categories.Single(e => e.CategoryId == categoryId);
+                var entity = ctx.Categories.Single(e => e.Id == id);
 
                 ctx.Categories.Remove(entity);
 
